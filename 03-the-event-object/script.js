@@ -2,11 +2,7 @@
 
 const logo = document.querySelector('img');
 
-// logo.addEventListener('click', (e) => {
-// 	console.log(e);
-// });
-
-const onClick = (e) => {
+function onClick(e) {
 	console.log(e.target);
 	console.log(e.currentTarget);
 	console.log(e.type);
@@ -15,19 +11,22 @@ const onClick = (e) => {
 	console.log(e.offsetX, e.offsetY);
 	console.log(e.pageX, e.pageY);
 	console.log(e.screenX, e.screenY);
-};
+}
 
-// logo.addEventListener('click', onClick);
+logo.addEventListener('click', onClick);
+
 // document.body.addEventListener('click', (e) => {
 // 	console.log(e.target);
 // 	console.log(e.currentTarget);
 // });
 
-logo.addEventListener('drag', (e) => {
-	document.querySelector('h1').textContent = `X ${e.clientX} Y ${e.clientY}`;
-});
-
 document.querySelector('.outer-link').addEventListener('click', (e) => {
 	e.preventDefault();
-	console.log('Link clicked');
+	console.log('Action Stopped');
 });
+
+const onDrag = (e) => {
+	document.querySelector('h1').textContent = `X ${e.clientX} Y ${e.clientY}`;
+};
+
+logo.addEventListener('drag', onDrag);
