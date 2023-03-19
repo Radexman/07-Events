@@ -1,14 +1,30 @@
 // ===== 05 Keycode Mini Project ===== //
 
-const key = document.querySelector('#key');
-const keycode = document.querySelector('#keycode');
-const code = document.querySelector('#code');
-const body = document.querySelector('body');
+/* <div class="card">
+Key
+<p id="key">K</p>
+</div> */
+
+const container = document.querySelector('.container');
 
 const getKeys = (e) => {
-	key.textContent = `${e.key}`;
-	keycode.textContent = `${e.keyCode}`;
-	code.textContent = `${e.code}`;
+	const keys = {
+		key: `${e.key}`,
+		keycode: `${e.keyCode}`,
+		code: `${e.code}`,
+	};
+	container.innerHTML = '';
+	for (const key in keys) {
+		const div = document.createElement('div');
+		const divText = document.createTextNode(key);
+		div.appendChild(divText);
+		div.classList = 'card';
+		const p = document.createElement('p');
+		const pText = document.createTextNode(keys[key]);
+		p.appendChild(pText);
+		div.appendChild(p);
+		container.appendChild(div);
+	}
 };
 
-body.addEventListener('keydown', getKeys);
+document.body.addEventListener('keydown', getKeys);
