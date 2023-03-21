@@ -1,22 +1,30 @@
-// ============= 06 Input Events ============= //
+// =========== 09 Event Delegation ============ //
 
-const button = document.querySelector('form button');
-const div = document.querySelector('form div:nth-child(2)');
-const form = document.querySelector('form');
+// const listItems = document.querySelectorAll('li');
+// const list = document.querySelector('ul');
 
-button.addEventListener('click', (e) => {
-	alert('The button was clicked');
-	e.stopPropagation();
-});
+// listItems.forEach((item) => {
+// 	item.addEventListener('click', (e) => {
+// 		e.target.remove();
+// 	});
+// });
 
-div.addEventListener('click', () => {
-	alert('Div was clicked');
-});
+// list.addEventListener('click', (e) => {
+// 	e.target.tagName === 'LI' ? e.target.remove() : null;
+// });
 
-form.addEventListener('click', () => {
-	alert('Form was clicked');
-});
+// list.addEventListener('mouseover', (e) => {
+// 	e.target.tagName === 'LI' ? (e.target.style.color = 'red') : null;
+// });
+const items = document.querySelectorAll('li');
+const list = document.querySelector('ul');
 
-document.body.addEventListener('click', () => {
-	alert('Body was clicked');
+// items.forEach((item) => {
+// 	item.addEventListener('click', (e) => {
+// 		e.target.remove();
+// 	});
+// });
+
+list.addEventListener('click', (e) => {
+	e.target.tagName === 'LI' ? e.target.remove() : null;
 });
